@@ -1,0 +1,66 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { 
+    font-family: system-ui, -apple-system, sans-serif; 
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+header { 
+    text-align: center; 
+    padding: 3rem 2rem; 
+    color: white; 
+    background: rgba(0,0,0,0.1);
+}
+h1 { font-size: clamp(2rem, 5vw, 4rem); margin-bottom: 0.5rem; }
+
+nav { 
+    display: flex; 
+    justify-content: center; 
+    gap: 1rem; 
+    padding: 2rem; 
+    background: white; 
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+button { 
+    padding: 1rem 2rem; 
+    border: none; 
+    background: #003087; 
+    color: white; 
+    border-radius: 50px; 
+    font-size: 1.1rem; 
+    cursor: pointer; 
+    transition: all 0.3s;
+}
+button:hover { transform: scale(1.05); background: #0040b0; }
+button.active { background: #ff6b35; }
+
+.tab { 
+    display: none; 
+    max-width: 1200px; 
+    margin: 2rem auto; 
+    padding: 3rem; 
+    background: white; 
+    border-radius: 20px; 
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+.tab.active { display: block; }
+
+canvas { 
+    max-height: 400px; 
+    width: 100% !important; 
+    border-radius: 12px; 
+    margin: 2rem 0;
+}
+
+footer { 
+    text-align: center; 
+    padding: 3rem; 
+    color: white; 
+    background: rgba(0,0,0,0.2);
+}
+
+@media (max-width: 768px) {
+    nav { flex-wrap: wrap; }
+    .tab { margin: 1rem; padding: 2rem 1rem; }
+}
