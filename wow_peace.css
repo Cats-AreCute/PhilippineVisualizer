@@ -1,66 +1,109 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { 
-    font-family: system-ui, -apple-system, sans-serif; 
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    min-height: 100vh;
-    color: #333;
+
+body {
+    padding: 10px; /* YOUR 10px padding */
+    height: 100vh;
+    font-family: system-ui, sans-serif;
+    overflow: hidden;
 }
 
-header { 
-    text-align: center; 
-    padding: 3rem 2rem; 
-    color: white; 
-    background: rgba(0,0,0,0.1);
+/* TOP TAB: 10% height, 80% width, top-right */
+.top-tab {
+    position: absolute;
+    top: 10px; right: 10px;
+    height: 10vh; width: 80%;
+    background: rgba(255,255,255,0.95);
+    border-radius: 12px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    backdrop-filter: blur(10px);
 }
-h1 { font-size: clamp(2rem, 5vw, 4rem); margin-bottom: 0.5rem; }
 
-nav { 
-    display: flex; 
-    justify-content: center; 
-    gap: 1rem; 
-    padding: 2rem; 
-    background: white; 
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+.year-controls {
+    display: flex; align-items: center; gap: 0.5rem;
+    font-weight: bold; font-size: 1.2rem;
 }
-button { 
-    padding: 1rem 2rem; 
-    border: none; 
-    background: #003087; 
-    color: white; 
-    border-radius: 50px; 
-    font-size: 1.1rem; 
-    cursor: pointer; 
+
+.arrow-btn {
+    width: 40px; height: 40px;
+    border: none; background: #003087;
+    color: white; border-radius: 50%;
+    font-size: 1.5rem; cursor: pointer;
+}
+
+.law-btn, .theme-btn, .settings-btn {
+    padding: 0.8rem 1.5rem;
+    border: none; border-radius: 25px;
+    cursor: pointer; font-weight: bold;
     transition: all 0.3s;
 }
-button:hover { transform: scale(1.05); background: #0040b0; }
-button.active { background: #ff6b35; }
 
-.tab { 
-    display: none; 
-    max-width: 1200px; 
-    margin: 2rem auto; 
-    padding: 3rem; 
-    background: white; 
-    border-radius: 20px; 
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-}
-.tab.active { display: block; }
+.law-btn { background: #ff6b35; color: white; }
+.theme-btn { background: #667eea; color: white; }
+.settings-btn { background: #10b981; color: white; }
 
-canvas { 
-    max-height: 400px; 
-    width: 100% !important; 
-    border-radius: 12px; 
-    margin: 2rem 0;
+/* LEFT TAB: 100% height, 20% width */
+.left-tab {
+    position: absolute;
+    left: 10px; top: 10px; bottom: 10px;
+    width: 20vw; min-width: 200px;
+    background: rgba(255,255,255,0.95);
+    border-radius: 12px;
+    padding: 1.5rem;
+    overflow-y: auto;
+    box-shadow: 4px 0 20px rgba(0,0,0,0.1);
 }
 
-footer { 
-    text-align: center; 
-    padding: 3rem; 
-    color: white; 
-    background: rgba(0,0,0,0.2);
+#statsList li {
+    padding: 1rem; margin: 0.5rem 0;
+    cursor: pointer; border-radius: 8px;
+    transition: background 0.3s;
+}
+#statsList li:hover, #statsList li.active {
+    background: #e3f2fd;
 }
 
+/* CENTER TAB: 60% height, 80% width */
+.center-tab {
+    position: absolute;
+    top: 12vh; right: 10px; left: 22vw;
+    height: 60vh;
+    background: rgba(255,255,255,0.95);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    display: flex; align-items: center; justify-content: center;
+}
+
+/* BOTTOM TAB: 30% height, 80% width */
+.bottom-tab {
+    position: absolute;
+    bottom: 10px; right: 10px; left: 10px;
+    height: 30vh;
+    background: rgba(255,255,255,0.95);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+    overflow-y: auto;
+}
+
+/* DARK THEME */
+.dark-theme {
+    background: #1a1a2e;
+    color: #eee;
+}
+.dark-theme .top-tab, .dark-theme .left-tab, 
+.dark-theme .center-tab, .dark-theme .bottom-tab {
+    background: rgba(40,40,60,0.95);
+    color: #eee;
+}
+
+/* RESPONSIVE */
 @media (max-width: 768px) {
-    nav { flex-wrap: wrap; }
-    .tab { margin: 1rem; padding: 2rem 1rem; }
+    .top-tab { flex-direction: column; gap: 1rem; }
+    .left-tab { width: 100%; height: 20vh; position: relative; }
+    .center-tab { left: 10px; right: 10px; }
 }
