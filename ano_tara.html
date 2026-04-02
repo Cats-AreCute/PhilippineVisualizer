@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🇵🇭 Statspogi Kaya! PH Stats Dashboard</title>
+    <link rel="stylesheet" href="css/wow_peace.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/mallungay_pandesal.js"></script>
+</head>
+<body>
+    <header>
+        <h1>🧔‍♂️ Statspogi Kaya!</h1>
+        <p>Philippine Statistics - Real PSA Data</p>
+    </header>
+
+    <nav>
+        <button onclick="loadTab('gdp')">💰 GDP</button>
+        <button onclick="loadTab('population')">👥 Population</button>
+        <button onclick="loadTab('inflation')">📈 Inflation</button>
+    </nav>
+
+    <main>
+        <section id="gdp" class="tab active">
+            <h2>GDP Growth %</h2>
+            <canvas id="gdpChart"></canvas>
+            <p id="gdpSummary">Loading pogi data...</p>
+        </section>
+
+        <section id="population" class="tab">
+            <h2>Population (Millions)</h2>
+            <canvas id="popChart"></canvas>
+        </section>
+
+        <section id="inflation" class="tab">
+            <h2>Inflation Rate %</h2>
+            <canvas id="inflationChart"></canvas>
+        </section>
+    </main>
+
+    <footer>
+        <p>📊 Source: PSA OpenSTAT | Made with ❤️ in PH</p>
+    </footer>
+
+    <script src="js/stats.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
